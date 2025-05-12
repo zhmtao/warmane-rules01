@@ -1,0 +1,34 @@
+name: Build warmane.srs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - warmane.yaml
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+
+      - name: Install geo tool
+        run: go install github.com/MetaCubeX/geo@latest
+
+      - name: Generate warmane.srs
+        run: |
+          ~/go/bin/geo build warmane.yaml -o warmane.srs
+
+      - name: Commit and push warmane.srs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add warmane.srs || true
+          git commit -m "Auto build warmane.srs" || echo "No changes to commit"
+          git push
