@@ -3,3 +3,4 @@ geosite:
     type: domain
     rule:
       - domain:logon.warmane.com
+      - domain:warmane.com
