@@ -1,0 +1,5 @@
+geosite:
+  - name: warmane
+    type: domain
+    rule:
+      - domain:logon.warmane.com
