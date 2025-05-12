@@ -20,11 +20,11 @@ jobs:
           go-version: '1.21'
 
       - name: Install geo tool
-        run: go install github.com/metacubex/geo@latest
+        run: go install github.com/metacubex/sing-geo@latest
 
       - name: Generate warmane.srs
         run: |
-          ~/go/bin/geo build warmane.yaml -o warmane.srs
+          ~/go/bin/sing-geo build warmane.yaml -o warmane.srs
 
       - name: Commit and push warmane.srs
         run: |
