@@ -4,3 +4,4 @@ geosite:
     rule:
       - domain:logon.warmane.com
       - domain:warmane.com
+# 测试第一
